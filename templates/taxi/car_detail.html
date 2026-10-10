@@ -15,7 +15,7 @@
         {% else %}
         <form action="{% url 'taxi:toggle-car-assign' pk=car.id %}" method="post" class="float-right d-inline">
           {% csrf_token %}
-          <button type="submit" class="btn btn-success">Assign this car to me</button>
+          <button type="submit" class="btn btn-success">Assign me to this car</button>
         </form>
       {% endif %}
   </h1>

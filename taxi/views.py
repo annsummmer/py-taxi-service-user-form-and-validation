@@ -89,7 +89,6 @@ class ToggleAssignToCarView(LoginRequiredMixin, View):
     def post(self, request, pk):
         car = Car.objects.get(pk=pk)
         driver = request.user
-        print(driver, car)
 
         if driver in car.drivers.all():
             car.drivers.remove(driver)
@@ -102,7 +101,7 @@ class ToggleAssignToCarView(LoginRequiredMixin, View):
 class DriverCreateView(LoginRequiredMixin, generic.CreateView):
     model = Driver
     form_class = DriverCreationForm
-    success_url = reverse_lazy("taxi:car-detail")
+    success_url = reverse_lazy("taxi:driver-list")
 
 
 class DriverUpdateView(LoginRequiredMixin, generic.UpdateView):
